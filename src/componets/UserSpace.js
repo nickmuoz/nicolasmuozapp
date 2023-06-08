@@ -16,15 +16,6 @@ function UserSpace() {
   const dispatch = useDispatch();
   const [selectedOption, setOption] = useState("listproducts");
   const [isMenuOpen, setMenuOpen] = useState(true);
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const containerStyle = {
-    width: isExpanded ? '100%' : 'auto',
-  };
-
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   const handleOptionChange = (option) => {
     setOption(option);
@@ -41,7 +32,7 @@ function UserSpace() {
   return (
     <Container fluid id="spaceContainer" className={isMenuOpen ? "menu-open" : "menu-closed"}>
       <div className="menu-toggle" onClick={handleMenuToggle}>
-        <FaChevronLeft/>
+        <FaChevronLeft />
       </div>
       <Container fluid className="user-container">
         <div className="row">
@@ -54,7 +45,7 @@ function UserSpace() {
               <h3 className="mt-4">Actividades</h3>
               <p>Cotizaciones, Servicios tecnicos, clientes.</p>
               <Accordion defaultActiveKey="0">
-                <Accordion.Item eventkey="0">
+                <Accordion.Item eventKey="0">
                   <Accordion.Header>Productos</Accordion.Header>
                   <Accordion.Body>
                     <Button variant="outline-primary" onClick={() => handleOptionChange("listproducts")}>Listado</Button>{' '}
@@ -62,25 +53,30 @@ function UserSpace() {
                     <Button variant="outline-primary">Borrar</Button>
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item eventkey="1">
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>Servicios</Accordion.Header>
+                  <Accordion.Body>
+                    <Button variant="outline-secondary" onClick={() => handleOptionChange("listproducts")}>Listado</Button>{' '}
+                    <Button variant="outline-secondary" onClick={() => handleOptionChange("addproduct")}>Nuevo</Button>{' '}
+                    <Button variant="outline-secondary">Borrar</Button>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
                   <Accordion.Header>Link</Accordion.Header>
                 </Accordion.Item>
-                <Accordion.Item eventkey="2">
-                  <Accordion.Header>Link</Accordion.Header>
-                </Accordion.Item>
-                <Accordion.Item eventkey="3">
+                <Accordion.Item eventKey="3">
                   <Accordion.Header>Disabled</Accordion.Header>
                 </Accordion.Item>
               </Accordion>
             </div>
           )}
-          <div className="col-sm-8">{isMenuOpen && (
-            <Container fluid className="workspace"style={containerStyle}>
-              {selectedOption === "listproducts" && <ListProducts handleOptionChange ={handleOptionChange}/>}
+          <div className="col-sm-8">
+            <Container fluid className="workspace">
+              {selectedOption === "listproducts" && <ListProducts handleOptionChange={handleOptionChange} />}
               {selectedOption === "addproduct" && <AddProduct />}
-              {selectedOption === "productbrief" && <ProductBrief/>}
+              {selectedOption === "productbrief" && <ProductBrief />}
             </Container>
-            )}</div>
+          </div>
         </div>
       </Container>
     </Container>
@@ -88,4 +84,3 @@ function UserSpace() {
 }
 
 export default UserSpace;
-

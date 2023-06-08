@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -7,6 +7,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavScrollExample() {
+  const [exchangeRate, setExchangeRate] = useState(null);
+
+  useEffect(() => {
+    fetchExchangeRate();
+  }, []);
+
+  const fetchExchangeRate = async () => {
+    try {
+      const response = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
+      const data = await response.json();
+      const exchangeRate = data.rates.COP;
+      setExchangeRate(exchangeRate);
+    } catch (error) {
+      console.log("Error fetching exchange rate:", error);
+    }
+  };
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -37,11 +54,10 @@ function NavScrollExample() {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder={exchangeRate ? `USD to COP: ${exchangeRate}` : "Loading..."}
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
