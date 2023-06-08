@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import TasksForm from "./componets/TasksForm";
+import Header from "./componets/Header";
+import Main from "./componets/Main";
+import UserSpace from "./componets/UserSpace";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./componets/Login";
+import AboutMe from "./componets/AboutUs";
+import ProtectedRoutes  from "./services/ProtectedRoutes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+      <Header/>
+        <Routes>
+            <Route path="/Login" element={<Login />} />
+            <Route element={<Main/>} path="/" exact />          
+            <Route element={<AboutMe/>} path="/AboutMe" exact />          
+            {/* <Route element={<UserSpace/>} path="/UserSpace" exact />           */}
+            <Route element={<TasksForm/>} path="/TasksForm" exact />          
+          <Route element = {<ProtectedRoutes/>}>
+            <Route element= {<UserSpace/>} path="/UserSpace"/>
+            <Route/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
   );
 }
 

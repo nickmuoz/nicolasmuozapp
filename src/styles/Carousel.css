@@ -1,0 +1,10 @@
+.carousel-image-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .carousel-image {
+    margin: 0 auto;
+    max-height: 500px; /* Adjust the height as needed */
+  }
+  

@@ -1,0 +1,46 @@
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .product-card h3 {
+    margin-top: 0;
+  }
+  
+  .product-card label {
+    font-weight: bold;
+  }
+  
+  .product-card input,
+  .product-card textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .product-card button {
+    margin-right: 10px;
+  }
+  
+  .btn-save {
+    background-color: green;
+    color: white;
+  }
+  
+  .btn-edit {
+    background-color: blue;
+    color: white;
+  }
+  
+  .btn-cancel {
+    background-color: orange;
+    color: white;
+  }
+  
+  .btn-close {
+    background-color: red;
+    color: white;
+  }
+  
