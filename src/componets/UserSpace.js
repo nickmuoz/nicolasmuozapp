@@ -16,6 +16,15 @@ function UserSpace() {
   const dispatch = useDispatch();
   const [selectedOption, setOption] = useState("listproducts");
   const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const containerStyle = {
+    width: isExpanded ? '100%' : 'auto',
+  };
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   const handleOptionChange = (option) => {
     setOption(option);
@@ -32,12 +41,12 @@ function UserSpace() {
   return (
     <Container fluid id="spaceContainer" className={isMenuOpen ? "menu-open" : "menu-closed"}>
       <div className="menu-toggle" onClick={handleMenuToggle}>
-        <FaChevronLeft />
+        <FaChevronLeft/>
       </div>
-      <Container className="user-container">
+      <Container fluid className="user-container">
         <div className="row">
           {isMenuOpen && (
-            <div className="col-sm-4">
+            <div className="col-sm-4" id="leftBar">
               <h2>{user.name}</h2>
               <h5>{user.email}</h5>
               <h5>{user.type}</h5>
@@ -48,8 +57,8 @@ function UserSpace() {
                 <Accordion.Item eventkey="0">
                   <Accordion.Header>Productos</Accordion.Header>
                   <Accordion.Body>
+                    <Button variant="outline-primary" onClick={() => handleOptionChange("listproducts")}>Listado</Button>{' '}
                     <Button variant="outline-primary" onClick={() => handleOptionChange("addproduct")}>Nuevo</Button>{' '}
-                    <Button variant="outline-primary" onClick={() => handleOptionChange("listproducts")}>Editar</Button>{' '}
                     <Button variant="outline-primary">Borrar</Button>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -65,13 +74,13 @@ function UserSpace() {
               </Accordion>
             </div>
           )}
-          <div className="col-sm-8">
-            <Container fluid className="workspace">
-              {selectedOption === "listproducts" && <ListProducts/>}
+          <div className="col-sm-8">{isMenuOpen && (
+            <Container fluid className="workspace"style={containerStyle}>
+              {selectedOption === "listproducts" && <ListProducts handleOptionChange ={handleOptionChange}/>}
               {selectedOption === "addproduct" && <AddProduct />}
               {selectedOption === "productbrief" && <ProductBrief/>}
             </Container>
-          </div>
+            )}</div>
         </div>
       </Container>
     </Container>

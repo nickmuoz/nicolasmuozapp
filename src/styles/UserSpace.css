@@ -8,6 +8,11 @@
   #usercontainer {
     width: 100%;
   }
+  #leftBar{
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
   
   .left-menu-header {
     display: flex;
@@ -70,6 +75,9 @@
       width: 100%;
       margin-top: 20px;
     }
+    .user-container{
+      margin-top: auto;
+    }
   }
   
   @media (min-width: 576px) {
@@ -98,5 +106,10 @@
     .col-sm-8.expanded .col-sm-8 {
       flex: 1;
     }
+
+    .user-container{
+      margin-top: auto;
+    }
+
   }
   

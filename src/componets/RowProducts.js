@@ -1,6 +1,6 @@
 import React from "react";
 
-function RowProduct({ product, deleteProduct, editMode, showProductDetails }) {
+function RowProduct({ product, deleteProduct, editMode, showProductDetails, handleOptionChange }) {
   const handleDeleteClick = () => {
     deleteProduct(product._id);
   };
@@ -9,6 +9,9 @@ function RowProduct({ product, deleteProduct, editMode, showProductDetails }) {
     showProductDetails(product._id);
   };
 
+  const productDetails = (opcion) =>{
+    handleOptionChange("productbrief")
+  }
 
   const formatCurrency = (value) => {
     if (typeof value === "number") {
@@ -34,7 +37,7 @@ function RowProduct({ product, deleteProduct, editMode, showProductDetails }) {
         {editMode ? (
           <button onClick={handleDeleteClick}>Delete</button>
         ) : (
-          <button onClick={()=>{ handleShowClick()}}>Show</button>
+          <button onClick={()=>{ productDetails("productbrief")}}>Show</button>
         )}
       </td>
     </tr>

@@ -5,7 +5,7 @@ import RowProduct from "./RowProducts";
 import ProductBrief from "./ProductBrief";
 import '../styles/listproducts.css'
 
-function ListProducts(handleOptionChange) {
+function ListProducts({handleOptionChange}) {
   const [products, setProducts] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -82,6 +82,7 @@ function ListProducts(handleOptionChange) {
               editMode={editMode}
               showProductDetails={showProductDetails}
               isSelected={selectedProductId === product._id}
+              handleOptionChange={handleOptionChange}
             />
           ))}
         </tbody>
