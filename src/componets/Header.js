@@ -36,19 +36,19 @@ function NavScrollExample() {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/AboutMe">Quien Soy</Nav.Link>
+            <Nav.Link href="/AboutMe" className="page-scroll">Quien Soy</Nav.Link>
             <NavDropdown title="Productos y servicios" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Productos</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Another action
+               Servicios
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
+              <NavDropdown.Item href="/Login">
+               Login
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/Login">
-              Link
+            <Nav.Link href="#action6">
+              Contactenos
             </Nav.Link>
           </Nav>
           <Form className="d-flex">

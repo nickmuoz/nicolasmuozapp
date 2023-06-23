@@ -5,9 +5,11 @@ import { useDispatch } from "react-redux";
 import urlBackEnd from "../services/authServices";
 import axios from 'axios'
 import { addUser, changeStatus } from "../app/userSlice";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 var qs = require("qs");
+const cookies = new Cookies(); 
 
 function Login() {
   const [password, setPassword] = useState("");
@@ -70,6 +72,7 @@ const handleSubmit = async (e) =>{
       console.log(userData)
       dispatch(addUser(userData))
       dispatch(changeStatus(true))
+      cookies.set('token', userData.token,{path: '/'});
       navigate("/UserSpace")
     })     
     .catch(function(error){

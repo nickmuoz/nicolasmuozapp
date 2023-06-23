@@ -7,10 +7,13 @@ import { FaChevronLeft } from "react-icons/fa";
 import ListProducts from "./ListProducts";
 import AddProduct from "./AddProduct";
 import ProductBrief from "./ProductBrief"
-import '../styles/UserSpace.css';
 import { deleteUser } from "../app/userSlice";
+import Cookies from 'universal-cookie';
+import '../styles/UserSpace.css';
 
 function UserSpace() {
+  const cookies = new Cookies();
+  const token = cookies.get('token');
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -22,6 +25,7 @@ function UserSpace() {
   };
 
   const handleLogout = (id) => {
+    cookies.remove('token');
     dispatch(deleteUser());
   };
 
@@ -72,7 +76,7 @@ function UserSpace() {
           )}
           <div className="col-sm-8">
             <Container fluid className="workspace">
-              {selectedOption === "listproducts" && <ListProducts handleOptionChange={handleOptionChange} />}
+              {selectedOption === "listproducts" && <ListProducts/>}
               {selectedOption === "addproduct" && <AddProduct />}
               {selectedOption === "productbrief" && <ProductBrief />}
             </Container>
