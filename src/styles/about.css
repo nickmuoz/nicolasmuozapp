@@ -17,10 +17,12 @@
   @media (max-width: 390px) {
     .img1 {
       max-width: 60%; /* En dispositivos móviles, la imagen ocupará todo el ancho disponible */
+      display: block;
+      margin: auto;
     }
 
     #containerabout {
-    margin-top: 200px;
+    margin-top: 396px;
  
       }
 
