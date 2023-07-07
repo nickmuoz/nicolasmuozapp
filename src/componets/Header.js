@@ -25,7 +25,7 @@ function NavScrollExample() {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="shadow-lg mb-2">
       <Container fluid>
         <Navbar.Brand href="#">Nicolas Muñoz</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -51,14 +51,11 @@ function NavScrollExample() {
               Contactenos
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder={exchangeRate ? `USD to COP: ${exchangeRate}` : "Loading..."}
-              className="me-2"
-              aria-label="Search"
-            />
-          </Form>
+          <div className="ms-auto d-flex align-items-center">
+            <div className="me-2">
+              {exchangeRate ? `USD to COP: ${exchangeRate}` : "Loading..."}
+            </div>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

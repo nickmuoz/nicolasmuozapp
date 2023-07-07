@@ -1,20 +1,38 @@
-/* body {
-    font-family:"Times New Roman", serif
-}
-h1,h2,h3,h4,h5,h6 {
-    font-family:serif; letter-spacing:5px
-} */
-#Image{
-    object-fit: scale-down;
-    max-width: 460px;
-}
-/* p{
-    color: black;
-} */
-#text-About{
-    text-align: justify;
-}
-#containerabout{
-    margin-top: 30px;
-}
+#containerabout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .img1 {
+    width: 100%;
+    max-width: 300px; /* Puedes ajustar el tamaño máximo de la imagen */
+    height: auto;
+  }
+  
+  #about {
+    padding-left: 20px; /* Puedes ajustar el espaciado a tu gusto */
+  }
+  
+  @media (max-width: 767px) {
+    .img1 {
+      max-width: 60%; /* En dispositivos móviles, la imagen ocupará todo el ancho disponible */
+    }
 
+    #containerabout {
+    margin-top: 200px;
+ 
+      }
+
+      #about .col-xs-12.col-md-6 {
+        margin-bottom: 20px;
+      }
+  }
+  
+  #about .col-xs-12.col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  

@@ -5,29 +5,29 @@ import Img1 from "../img/foto_pefil.jpg";
 
 const AboutUs = () => {
   return (
-    <div>
-      <div>
-        <div className="row" id="containerabout">
-          <div className="col-sm-4">
-            <Image fluid="xs" src={Img1} />
-          </div>
+    <Container>
+      <div className="row" id="containerabout">
+        <div className="col-lg-6 col-md-12">
+          <img className="img1" src={Img1} />
+        </div>
+        <div className="col-lg-6 col-md-12">
           <div
-            classname="w3-content w3-justify w3-text-grey w3-padding-64"
+            className="w3-content w3-justify w3-text-grey w3-padding-64"
             id="about"
           >
-            <h2 classname="w3-text-light-grey">Nicolas Muñoz</h2>
-            <hr classname="w3-opacity" />
+            <h2 className="w3-text-light-grey">Nicolas Muñoz</h2>
+            <hr className="w3-opacity" />
             <p>
-              Técnico graduado de la Universidad Autónoma del Caribe con mas de
-              15 años de experiencia en el area de IT, poseo varias
+              Técnico graduado de la Universidad Autónoma del Caribe con más de
+              15 años de experiencia en el área de IT, poseo varias
               certificaciones en networking, Iot, análisis de datos y desarrollo
               web. Actualmente desempeñando como (freelance) contratista IT
               ofreciendo soluciones a empresas que no cuentan con departamento
-              de sistemas, prestandole servicios que van desde administracion y
-              soporte hasta el desarrollo e instalacion de infraestructuras IT.
-              He ejecutado y participados en varios proyectos de automatización
-              residencial y comercial, asi com montajede redes de voz y datos,
-              asi como sistemas de seguridad electrónica. Recientemente, culminé
+              de sistemas, prestando servicios que van desde administración y
+              soporte hasta el desarrollo e instalación de infraestructuras IT.
+              He ejecutado y participado en varios proyectos de automatización
+              residencial y comercial, así como montaje de redes de voz y datos,
+              así como sistemas de seguridad electrónica. Recientemente, culminé
               mi pensum académico en la Universidad del Atlántico, donde
               actualmente estoy trabajando en mi proyecto de grado para recibir
               el título de administrador de empresas. Me siento muy orgulloso de
@@ -41,7 +41,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
