@@ -14,7 +14,7 @@
     padding-left: 20px; /* Puedes ajustar el espaciado a tu gusto */
   }
   
-  @media (max-width: 767px) {
+  @media (max-width: 390px) {
     .img1 {
       max-width: 60%; /* En dispositivos móviles, la imagen ocupará todo el ancho disponible */
     }
