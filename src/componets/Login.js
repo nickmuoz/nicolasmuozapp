@@ -7,6 +7,8 @@ import axios from 'axios'
 import { addUser, changeStatus } from "../app/userSlice";
 import {useNavigate} from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import reCAPTCHA from "react-google-recaptcha"
+
 
 var qs = require("qs");
 const cookies = new Cookies(); 
@@ -121,6 +123,7 @@ const handleSubmit = async (e) =>{
               />
               <label className="form-check-label">Check me out</label>
             </div>
+            <reCAPTCHA/>
             <input value="Enviar" type="submit" className="btn btn-primary" onClick={()=>{handleSubmit()}}/>
           </div>
     </Container>

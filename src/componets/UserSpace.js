@@ -19,6 +19,7 @@ function UserSpace() {
   const dispatch = useDispatch();
   const [selectedOption, setOption] = useState("listproducts");
   const [isMenuOpen, setMenuOpen] = useState(true);
+  const [elementClass, setClass] = useState('col-sm-8')
 
   const handleOptionChange = (option) => {
     setOption(option);
@@ -74,7 +75,7 @@ function UserSpace() {
               </Accordion>
             </div>
           )}
-          <div className="col-sm-8">
+          <div className={isMenuOpen ? 'col-sm-8' : 'container'}>
             <Container fluid className="workspace">
               {selectedOption === "listproducts" && <ListProducts/>}
               {selectedOption === "addproduct" && <AddProduct />}

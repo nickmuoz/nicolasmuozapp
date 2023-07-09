@@ -1,32 +1,32 @@
-.list-products {
+.product-list {
     width: 100%;
   }
   
-  .list-products h2 {
+  .product-list h2 {
     margin-top: 0;
     margin-bottom: 20px;
   }
   
-  .list-products table {
+  .product-list table {
     width: 100%;
   }
   
-  .list-products th,
-  .list-products td {
+  .product-list th,
+  .product-list td {
     padding: 10px;
     text-align: left;
   }
   
-  .list-products th {
+  .product-list th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
   
-  .list-products tbody tr:nth-child(even) {
+  .product-list tbody tr:nth-child(even) {
     background-color: #f9f9f9;
   }
   
-  .list-products .product-row {
+  .product-list .product-row {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
@@ -34,31 +34,31 @@
     margin-bottom: 10px;
   }
   
-  .list-products .product-row .product-info {
+  .product-list .product-row .product-info {
     flex-grow: 1;
     padding: 10px;
   }
   
-  .list-products .product-row .product-actions {
+  .product-list .product-row .product-actions {
     padding: 10px;
   }
   
-  .list-products .product-row .product-actions button {
+  .product-list .product-row .product-actions button {
     margin-right: 5px;
   }
   
   @media screen and (max-width: 768px) {
-    .list-products table {
+    .product-list table {
       width: 100%;
       display: block;
       overflow-x: auto;
     }
     
-    .list-products thead {
+    .product-list thead {
       display: none;
     }
     
-    .list-products tbody tr {
+    .product-list tbody tr {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -69,7 +69,7 @@
       padding: 10px;
     }
     
-    .list-products tbody td {
+    .product-list tbody td {
       width: 50%;
     }
   }
