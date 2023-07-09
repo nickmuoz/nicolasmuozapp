@@ -72,7 +72,7 @@
   transform: translateY(-50%);
   padding: 10px;
   cursor: pointer;
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
   z-index: 999;
 }
 

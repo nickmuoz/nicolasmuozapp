@@ -36,9 +36,6 @@ function UserSpace() {
 
   return (
     <Container fluid id="spaceContainer" className={isMenuOpen ? "menu-open" : "menu-closed"}>
-      <div className="menu-toggle" onClick={handleMenuToggle}>
-        <FaChevronLeft />
-      </div>
       <Container fluid className="user-container">
         <div className="row">
           {isMenuOpen && (
@@ -75,6 +72,9 @@ function UserSpace() {
               </Accordion>
             </div>
           )}
+                <div className="menu-toggle" onClick={handleMenuToggle}>
+        <FaChevronLeft />
+      </div>
           <div className={isMenuOpen ? 'col-sm-8' : 'container'}>
             <Container fluid className="workspace">
               {selectedOption === "listproducts" && <ListProducts/>}

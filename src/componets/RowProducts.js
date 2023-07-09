@@ -37,7 +37,7 @@ function RowProduct({ product, deleteProduct, editMode, showProductDetails, hand
         {editMode ? (
           <button onClick={handleDeleteClick}>Delete</button>
         ) : (
-          <button onClick={()=>{ productDetails("productbrief")}}>Show</button>
+          <button onClick={handleShowClick}>Show</button>
         )}
       </td>
     </tr>
