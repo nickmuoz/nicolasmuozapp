@@ -26,7 +26,7 @@ function RowProduct({ product, deleteProduct, editMode, showProductDetails, hand
 
   return (
     <tr>
-      <td>{product._id}</td>
+      {/* <td>{product._id}</td> */}
       <td>{product.image}</td>
       <td>{product.name}</td>
       <td>{formatCurrency(product.value)}</td>

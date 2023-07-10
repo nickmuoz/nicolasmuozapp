@@ -19,6 +19,7 @@ function UserSpace() {
   const dispatch = useDispatch();
   const [selectedOption, setOption] = useState("listproducts");
   const [isMenuOpen, setMenuOpen] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [elementClass, setClass] = useState('col-sm-8')
 
   const handleOptionChange = (option) => {
@@ -34,8 +35,21 @@ function UserSpace() {
     setMenuOpen(!isMenuOpen);
   };
 
+  const handleShowProductBrief = (product) => {
+    setOption("productbrief");
+    setSelectedProduct(product);
+  };
+
+  const handleHideProductBrief = () => {
+    setOption("listproducts");
+    setSelectedProduct(null);
+  };
+
   return (
     <Container fluid id="spaceContainer" className={isMenuOpen ? "menu-open" : "menu-closed"}>
+      <div className="menu-toggle" onClick={handleMenuToggle}>
+        <FaChevronLeft />
+      </div>
       <Container fluid className="user-container">
         <div className="row">
           {isMenuOpen && (
@@ -72,14 +86,21 @@ function UserSpace() {
               </Accordion>
             </div>
           )}
-                <div className="menu-toggle" onClick={handleMenuToggle}>
-        <FaChevronLeft />
-      </div>
           <div className={isMenuOpen ? 'col-sm-8' : 'container'}>
             <Container fluid className="workspace">
-              {selectedOption === "listproducts" && <ListProducts/>}
+              {selectedOption === "listproducts" && (
+                <ListProducts
+                  handleOptionChange={handleOptionChange}
+                  handleShowProductBrief={handleShowProductBrief}
+                />
+              )}
               {selectedOption === "addproduct" && <AddProduct />}
-              {selectedOption === "productbrief" && <ProductBrief />}
+              {selectedOption === "productbrief" && selectedProduct && (
+                <ProductBrief
+                  product={selectedProduct}
+                  handleClose={handleHideProductBrief}
+                />
+              )}
             </Container>
           </div>
         </div>

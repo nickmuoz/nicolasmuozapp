@@ -13,9 +13,34 @@ function ProductBrief({ product, handleClose }) {
     }));
   };
 
+  const updateProductValue = async () => {
+    try {
+      const response = await fetch('https://hidden-hill-6661.fly.dev/products/edit-value', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: product._id,
+          value: editedProduct.value
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Handle the response or any additional logic
+        console.log(data);
+      } else {
+        throw new Error('Failed to update product value');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleSaveClick = () => {
     // Perform save operation with editedProduct
-    // ...
+    updateProductValue();
     setEditMode(false);
   };
 

@@ -3,34 +3,23 @@ import { Table, Container } from "react-bootstrap";
 import GetProducts from "../services/product.services";
 import RowProduct from "./RowProducts";
 import ProductBrief from "./ProductBrief";
-import '../styles/listproducts.css'
+import "../styles/listproducts.css";
 
-function ListProducts({handleOptionChange}) {
+function ListProducts({ handleOptionChange }) {
   const [products, setProducts] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const handleEditClick = () => {
-    setEditMode(!editMode);
-  };
+  const handleSearchInputChange = (event) => {
+    const value = event.target.value;
+    setSearchQuery(value);
 
-  const deleteProduct = async (productId) => {
-    try {
-      await fetch(`https://hidden-hill-6661.fly.dev/products/${productId}`, {
-        method: "DELETE"
-      });
-      fetchProducts(); // Fetch products again to update the list
-    } catch (error) {
-      console.error("Error deleting product:", error);
-    }
-  };
-
-  const showProductDetails = (productId) => {
-    setSelectedProductId(productId);
-  };
-
-  const handleProductClose = () => {
-    setSelectedProductId(null);
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredProducts(filtered);
   };
 
   useEffect(() => {
@@ -42,39 +31,50 @@ function ListProducts({handleOptionChange}) {
       const response = await fetch(`${GetProducts.RUTA_API}`);
       const data = await response.json();
       setProducts(data);
+      setFilteredProducts(data);
     } catch (error) {
       console.error("Error fetching products", error);
     }
   };
 
+  const deleteProduct = (productId) => {
+    // Perform delete operation
+    // ...
+  };
+
+  const showProductDetails = (productId) => {
+    setSelectedProductId(productId);
+  };
+
+  const handleProductClose = () => {
+    setSelectedProductId(null);
+  };
+
   return (
     <Container fluid className="product-list">
       <h2>Lista de Productos</h2>
-      <button onClick={handleEditClick}>{editMode ? "Save" : "Edit"} Mode</button>
+      <button onClick={() => setEditMode(!editMode)}>
+        {editMode ? "Save" : "Edit"} Mode
+      </button>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={handleSearchInputChange}
+        placeholder="Search products..."
+      />
       <Table striped bordered hover>
-        <colgroup>
-          <col span="1" style={{ width: "10%" }} />
-          <col span="1" style={{ width: "15%" }} />
-          <col span="1" style={{ width: "15%" }} />
-          <col span="1" style={{ width: "25%" }} />
-          <col span="1" style={{ width: "15%" }} />
-          <col span="1" style={{ width: "10%" }} />
-          <col span="1" style={{ width: "10%" }} />
-        </colgroup>
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Image</th>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Valor</th>
             <th>Descripcion</th>
             <th>Disponibilidad</th>
             <th>Serial</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <RowProduct
               key={product._id}
               product={product}
