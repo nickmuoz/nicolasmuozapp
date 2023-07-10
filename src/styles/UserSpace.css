@@ -1,8 +1,9 @@
 #spaceContainer {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; 
+  padding-top: 20px; 
 }
 
 .user-container {
@@ -95,5 +96,9 @@
   .col-sm-8 {
     width: 100%;
     margin-top: 20px;
+  }
+
+  .workspace {
+    height: calc(100vh - 48px);
   }
 }
