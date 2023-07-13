@@ -75,6 +75,7 @@ const handleSubmit = async (e) =>{
       dispatch(addUser(userData))
       dispatch(changeStatus(true))
       cookies.set('token', userData.token,{path: '/'});
+      cookies.set('cookie_sesion', userData.name,{path: '/'});
       navigate("/UserSpace")
     })     
     .catch(function(error){

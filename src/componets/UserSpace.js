@@ -10,6 +10,7 @@ import ProductBrief from "./ProductBrief"
 import { deleteUser } from "../app/userSlice";
 import Cookies from 'universal-cookie';
 import '../styles/UserSpace.css';
+import FormatSupport from "./FormatSupport";
 
 function UserSpace() {
   const cookies = new Cookies();
@@ -72,7 +73,7 @@ function UserSpace() {
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>Servicios</Accordion.Header>
                   <Accordion.Body>
-                    <Button variant="outline-secondary" onClick={() => handleOptionChange("listproducts")}>Listado</Button>{' '}
+                    <Button variant="outline-secondary" onClick={() => handleOptionChange("newservice")}>Nuevo</Button>{' '}
                     <Button variant="outline-secondary" onClick={() => handleOptionChange("addproduct")}>Nuevo</Button>{' '}
                     <Button variant="outline-secondary">Borrar</Button>
                   </Accordion.Body>
@@ -90,6 +91,12 @@ function UserSpace() {
             <Container fluid className="workspace">
               {selectedOption === "listproducts" && (
                 <ListProducts
+                  handleOptionChange={handleOptionChange}
+                  handleShowProductBrief={handleShowProductBrief}
+                />
+              )}
+              {selectedOption === "newservice" && (
+                <FormatSupport
                   handleOptionChange={handleOptionChange}
                   handleShowProductBrief={handleShowProductBrief}
                 />
