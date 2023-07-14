@@ -6,10 +6,6 @@
   padding-top: 20px; 
 }
 
-#containerCenter{
-
-}
-
 .user-container {
   width: 100%;
 }
@@ -55,8 +51,6 @@
   transition: all 0.3s ease;
   overflow-y: auto;
   flex: 1;
-  display: flex;
-  justify-content: center;
 }
 
 .workspace.collapsed {
@@ -79,7 +73,6 @@
   transform: translateY(-50%);
   padding: 10px;
   cursor: pointer;
-  /* background-color: #f8f9fa; */
   z-index: 999;
 }
 

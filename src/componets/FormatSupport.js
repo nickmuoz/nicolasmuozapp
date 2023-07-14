@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react";
+import {Container} from 'react-bootstrap'
 import axios from "axios";
 import urlBackEnd from "../services/authServices";
 import Cookies from "universal-cookie";
 import { Button, Form, FormGroup, Label, Input, Col, Row } from "reactstrap";
 import SignatureCanvas from "react-signature-canvas";
+import '../styles/formatsupport.css'
 
 var qs = require("qs");
 
@@ -84,7 +86,7 @@ const FormatSupport = () => {
     window.location.href = "/";
   } else {
     return (
-      <>
+      <Container fluid="xs" >
         <div className="col-md-8">
           <h2>Formato de Soporte</h2>
           <div className="card mb-3">
@@ -177,11 +179,15 @@ const FormatSupport = () => {
                   <Col md={6}>
                     <FormGroup>
                       <Label>Firma</Label>
-                      <div>
+                      <div className="containersign">
                         <SignatureCanvas
                           ref={sigCanvasRef}
                           canvasProps={{
                             className: "signature-canvas",
+                            style:{
+                              width: "210px",
+                              height: "110px"
+                            }
                           }}
                           onEnd={handleSaveSignature}
                           backgroundColor="#f5f5f5"
@@ -216,7 +222,7 @@ const FormatSupport = () => {
             </div>
           </div>
         </div>
-      </>
+      </Container>
     );
   }
 };
