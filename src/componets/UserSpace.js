@@ -87,7 +87,7 @@ function UserSpace() {
               </Accordion>
             </div>
           )}
-          <div className={isMenuOpen ? 'col-sm-8' : 'container'}>
+          <div id="containerCenter" className={isMenuOpen ? 'col-sm-8' : 'container'}>
             <Container fluid className="workspace">
               {selectedOption === "listproducts" && (
                 <ListProducts

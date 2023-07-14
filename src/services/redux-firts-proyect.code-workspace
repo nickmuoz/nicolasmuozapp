@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "redux-firts-proyect",
+			"path": "../.."
+		},
+		{
+			"name": "app",
+			"path": "../../../../clases/8.express/frondend/reactW3css/app"
+		}
+	],
+	"settings": {}
+}

@@ -200,7 +200,7 @@ const FormatSupport = () => {
                   </Col>
                 </Row>
                 <hr />
-                <Button type="submit" color="info">
+                <Button type="submit" color="info" onClick={handleSubmit}>
                   Registrar
                 </Button>{" "}
                 <Button
